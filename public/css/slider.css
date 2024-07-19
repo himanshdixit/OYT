@@ -1,0 +1,90 @@
+.ll{
+margin-top:20px;
+}
+
+.wrapper.four {
+    background-color: transparent;
+    font-size: 5rem;
+	font-family: Konkhmer Sleokchher !important;
+}
+.four .type{
+    padding: 2rem 1rem;
+    width: auto;
+    margin: auto;
+}
+.four h1 {
+    width: 100%;
+    border-right: 3px solid #fff;
+    margin: auto;
+    white-space: nowrap;
+    overflow: hidden;
+	color:white !important;
+	font-weight: bolder !important;
+	line-height: 41px !important;
+	letter-spacing: 2px;
+    animation: typing 2s steps(13, end), blink-caret 0.5s step-end infinite alternate;
+}
+@-webkit-keyframes typing {
+    from {
+        width: 0;
+    }
+}
+@-webkit-keyframes blink-caret {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.text1 h2 {
+    animation: disappear 4s 2s both infinite;
+	padding:15px;
+}
+@keyframes disappear {
+    20% {
+        text-shadow: 0 0 20px #cbc7c7;
+        opacity: 0.5;
+    }
+	
+	    30% {
+        text-shadow: 0 0 20px #cbc7c7;
+        opacity: 0.7;
+    }
+	
+    50% {
+        text-shadow: 0 0 40px #cbc7c7;
+    }
+	80%{
+        text-shadow: 0 0 90px #cbc7c7;		
+	}
+    to {
+        text-shadow: 0 0 20px #cbc7c7;
+        opacity: 0;
+    }
+}
+
+
+.carousel-fade .carousel-item {
+    opacity: 0.5;
+    transition-duration: .6s;
+    transition-property: opacity;
+   }
+   
+   .carousel-fade  .carousel-item.active,
+   .carousel-fade  .carousel-item-next.carousel-item-left,
+   .carousel-fade  .carousel-item-prev.carousel-item-right {
+     opacity: 1;
+   }
+   
+   .carousel-fade .active.carousel-item-left,
+   .carousel-fade  .active.carousel-item-right {
+    opacity: 0.5;
+   }
+   
+   .carousel-fade  .carousel-item-next,
+   .carousel-fade .carousel-item-prev,
+   .carousel-fade .carousel-item.active,
+   .carousel-fade .active.carousel-item-left,
+   .carousel-fade  .active.carousel-item-prev {
+    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
+   }

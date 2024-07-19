@@ -1,0 +1,35 @@
+.tp2{
+    opacity: 0;
+}
+.tp1:hover>.tp2 {
+    opacity: 1;
+  }
+
+.txtpadding:hover{
+    padding: 7px 20px 7px 1px !important;
+	transition: opacity 501ms;
+	transition: padding .3s linear;
+} 
+
+a {
+	text-decoration:none !important;
+	transition: transform .3s ease-out;
+}
+
+ .nav-link:hover{
+	transform: translate(0, -5px);
+	transition: all .3s ease-in-out;
+  }
+  
+  .nav-item{
+	  line-height:30px;
+  }
+  
+  
+  .uk-dotnav>.uk-active>*{
+	background-color: black !important;
+    border-color: transparent;
+  }
+  
+
+  

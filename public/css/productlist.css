@@ -1,0 +1,131 @@
+h1{
+color:#fff;
+}
+
+p{
+    margin-bottom:5px !important;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Comfortaa', sans-serif !important;
+}
+
+span{
+  font-size: 14px;
+  font-family: 'Comfortaa', sans-serif !important;    
+}
+
+input[type=radio] {
+    appearance: none;
+    padding: 7px;
+    background-color: #d3d3d3;
+    border-radius:50%;
+    margin:0 !important;
+ }
+ input[type=radio]:checked {
+    background-color: #ff3d00;
+ }
+    
+
+ .slidecontainer {
+    width: 100%;
+  }
+  
+  .slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 10px;
+    border-radius:20px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+  
+  .slider:hover {
+    opacity: 1;
+  }
+  
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius:50px;
+    background: #ff3d00;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: #ff3d00;
+    cursor: pointer;
+  }
+  
+  
+  .rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★ ';
+}
+.rate > input:checked ~ label {
+    color: #ff3d00;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #ff3d00;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #ff3d00;
+}
+
+.carousel-indicators {
+    justify-content: right;
+    margin:5px;
+    }
+    .carousel-indicators li{
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    }
+    
+    .page-item .page-link {
+    color:#ff3d00;
+    }
+    
+    .page-item.active .page-link {
+    background-color: #3c77c9;
+    border-color: #3c77c9;
+    }
+    
+    .btn-outline-primary:hover{
+    border-color:#ff3d00;
+    background-color:#ff3d00;
+    }
+    
+    .btn-outline-primary{
+    border-color:#ff3d00;
+    color:#ff3d00;
+    }
+    

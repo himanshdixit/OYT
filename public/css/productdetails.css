@@ -1,0 +1,56 @@
+p{
+    margin-bottom:5px !important;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Comfortaa', sans-serif !important;
+}
+
+span{
+    font-size: 14px;
+    font-family: 'Comfortaa', sans-serif !important;    
+}
+
+.carousel-indicators {
+    justify-content: right;
+    margin:5px;
+    }
+    .carousel-indicators li{
+    width: 10px;
+    height: 10px;
+    background-color: #ff3d00;
+    }
+    
+    .carousel-control-next-icon, .carousel-control-prev-icon {
+    width: 50px;
+    height: 25px;
+    background-color:#ff3d00;
+    }
+    
+    .carousel-control-next, .carousel-control-prev {
+        top: -20%;
+    }
+    
+    
+
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #3c77c9;
+    background-color: #fff;
+	font-weight:600;
+}
+.nav-pills .nav-link, .nav-pills .show>.nav-link {
+    color: black;
+	background-color:#fbfbfb;
+}
+
+.imgg1 {
+    position: relative;
+    text-align: center;
+    color: white;
+  }
+  
+  .top-left {
+    position: absolute;
+    top: 8px;
+    padding:15px 10px;
+  }

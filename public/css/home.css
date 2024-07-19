@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Bagel Fat One');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300');
+
+/* .mtxt{
+    font-family:'Bagel Fat One';
+} */
+
+body {
+    font-family: 'Comfortaa', sans-serif;
+}
+
+/* -------start wellness resort css------- */
+
+.nopdding{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+.nopdding1{
+    padding-right: 1px !important;
+    padding-left: 1px !important;
+}
+.nopddingL{
+    padding-right: 5px !important;
+    padding-left: 0px !important;
+}
+.nopddingR{
+    padding-right: 0px !important;
+    padding-left: 5px !important;
+}
+.nopddingT{
+    padding-bottom: 5px !important;
+    padding-top: 0px !important;
+}
+.nopddingB{
+    padding-bottom: 0px !important;
+    padding-top: 5px !important;
+}
+
+/* -------End wellness resort css------- */
+
+.carousel-indicators li {
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+    background-color: black;
+}
+
+@media(min-width: 479px){
+
+    .uk-card-body {
+        min-height: 150px;
+    }
+
+}
+
+@media(max-width: 479px){
+
+    .uk-card-body {
+        min-height: 90px;
+    }
+
+}
+
+
+.uk-light> .uk-dotnav>*>* {
+    background-color: transparent;
+    border-color: rgb(60, 119, 201) !important;
+}
+
+.uk-dotnav>.uk-active>* {
+    background-color: rgb(60, 119, 201) !important;
+    border-color: transparent;
+}
+
+.form-control {
+
+    color:rgb(255, 61, 0);
+    border: 1px solid #ced4da !important;;
+    border-radius: 0;
+
+}
+
+.form-control:hover {
+
+    background-color: rgb(204, 217, 255);
+    transition: 0.5sec ease-in-out all;
+
+}
+
+
+.form-row>.col, .form-row>[class*=col-] {
+    padding-right: 0;
+    padding-left: 0;
+}
+
