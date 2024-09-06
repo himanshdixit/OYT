@@ -1,9 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\adminController;
 
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\dashboardController;
+
+use App\Http\Controllers\vendorRegistrationController;
+use App\Http\Controllers\vendorPanelController;
+
+
+use App\Http\Controllers\vendorController;
+use App\Http\Controllers\VendordashboardController;
+
+use App\Http\Controllers\salesController;
+use App\Http\Controllers\SalesdashboardController;
 
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
@@ -24,6 +34,17 @@ use App\Http\Controllers\resortController;
 use App\Http\Controllers\cruiseitemController;
 use App\Http\Controllers\cruiseimageController;
 use App\Http\Controllers\cruise_itinerary_mapController;
+
+use App\Http\Controllers\hotelVController;
+use App\Http\Controllers\cruiseitemVController;
+use App\Http\Controllers\weddingVController;
+use App\Http\Controllers\wineVController;
+use App\Http\Controllers\honeymoonVController;
+use App\Http\Controllers\caravanVController;
+use App\Http\Controllers\holidayVController;
+use App\Http\Controllers\resortVController;
+use App\Http\Controllers\golfVController;
+use App\Http\Controllers\planeVController;
 
 
 /*
@@ -85,9 +106,15 @@ Route::get('/signup/{any?}', function () {
 });
 
 
-
 Route::get('admin/login',[adminController::class,'index']);
 Route::post('/admin/login_submit',[adminController::class,'auth']);
+
+Route::get('vendor/login',[vendorController::class,'index']);
+Route::post('/vendor/login_submit',[vendorController::class,'auth']);
+
+Route::get('sales/login',[salesController::class,'index']);
+Route::post('/sales/login_submit',[salesController::class,'auth']);
+
 
 // -----------------------Start Admin Panel ----------------------
 
@@ -95,7 +122,43 @@ Route::group(['middleware'=>'authcheck'],function(){
 
     Route::get('admin/dashboard',[adminController::class,'dashboard']);
 
+    Route::get('admin/vendorpanel',[dashboardController::class,'vendorpanel']);
+    Route::get('admin/propertyvendorlist/{type}',[vendorPanelController::class,'propertyvendorlist']);
 
+    Route::get('admin/hotelvendors/',[vendorPanelController::class,'hotelvendors']);
+    Route::get('admin/cruisevendors/',[vendorPanelController::class,'cruisevendors']);
+    Route::get('admin/weddingvendors/',[vendorPanelController::class,'weddingvendors']);
+    Route::get('admin/winevendors/',[vendorPanelController::class,'winevendors']);
+    Route::get('admin/caravanvendors/',[vendorPanelController::class,'caravanvendors']);
+    Route::get('admin/holidaysvendors/',[vendorPanelController::class,'holidaysvendors']);
+    Route::get('admin/honeymoonvendors/',[vendorPanelController::class,'honeymoonvendors']);
+    Route::get('admin/resortvendors/',[vendorPanelController::class,'resortvendors']);
+    Route::get('admin/planesvendors/',[vendorPanelController::class,'planesvendors']);
+    Route::get('admin/golfsvendors/',[vendorPanelController::class,'golfsvendors']);
+
+    Route::get('admin/showvendorhotellist/{v}',[vendorPanelController::class,'showvendorhotellist']);
+    Route::get('admin/showvendorcruiselist/{v}',[vendorPanelController::class,'showvendorcruiselist']);
+    Route::get('admin/showvendorweddinglist/{v}',[vendorPanelController::class,'showvendorweddinglist']);
+    Route::get('admin/showvendorwinelist/{v}',[vendorPanelController::class,'showvendorwinelist']);
+    Route::get('admin/showvendorcaravanlist/{v}',[vendorPanelController::class,'showvendorcaravanlist']);
+    Route::get('admin/showvendorholidayslist/{v}',[vendorPanelController::class,'showvendorholidayslist']);
+    Route::get('admin/showvendorhoneymoonlist/{v}',[vendorPanelController::class,'showvendorhoneymoonlist']);
+    Route::get('admin/showvendorresortlist/{v}',[vendorPanelController::class,'showvendorresortlist']);
+    Route::get('admin/showvendorplaneslist/{v}',[vendorPanelController::class,'showvendorplaneslist']);
+    Route::get('admin/showvendorgolfslist/{v}',[vendorPanelController::class,'showvendorgolfslist']);
+
+    Route::get('admin/hotel/approve/{id}',[vendorPanelController::class,'hotelapprove']);
+    Route::get('admin/cruise/approve/{id}',[vendorPanelController::class,'cruiseapprove']);
+    Route::get('admin/wedding/approve/{id}',[vendorPanelController::class,'weddingapprove']);
+    Route::get('admin/wine/approve/{id}',[vendorPanelController::class,'wineapprove']);
+    Route::get('admin/caravan/approve/{id}',[vendorPanelController::class,'caravanapprove']);
+    Route::get('admin/holidays/approve/{id}',[vendorPanelController::class,'holidaysapprove']);
+    Route::get('admin/honeymoon/approve/{id}',[vendorPanelController::class,'honeymoonapprove']);
+    Route::get('admin/resort/approve/{id}',[vendorPanelController::class,'resortapprove']);
+    Route::get('admin/planes/approve/{id}',[vendorPanelController::class,'planesapprove']);
+    Route::get('admin/golfs/approve/{id}',[vendorPanelController::class,'golfsapprove']);
+    
+    
     //------------Start Contact----------------
     Route::get('admin/contactlist',[dashboardController::class,'contactlist']);
     Route::get('admin/contactlists/contactdeleted/{id}',[dashboardController::class,'deletecontactlist']);
@@ -279,6 +342,17 @@ Route::group(['middleware'=>'authcheck'],function(){
     Route::get('admin/blogs/delete/{id}',[blogsController::class,'delete']);
 
 
+    //------------Start Vendor Registration----------------
+    Route::get('admin/vendors',[vendorRegistrationController::class,'index']);
+    Route::get('admin/vendors/add-vendors',[vendorRegistrationController::class,'show']);
+    Route::post('/admin/vendors/insert',[vendorRegistrationController::class,'insert']);
+    Route::get('admin/vendors/edit/{id}',[vendorRegistrationController::class,'edit']);
+    Route::post('/admin/vendors/update/{id}',[vendorRegistrationController::class,'update']);
+    Route::get('admin/vendors/delete/{id}',[vendorRegistrationController::class,'delete']);
+    //********** END************
+
+
+
     Route::get('admin/logout', function () {
 
         // session()->forget('LOGGED_ADMIN');
@@ -300,3 +374,143 @@ Route::group(['middleware'=>'authcheck'],function(){
 
 
 // -----------------------END Admin Panel ----------------------
+
+
+// -----------------------Start Vendor Panel ----------------------
+
+Route::group(['middleware'=>'vendorcheck'],function(){
+
+    Route::get('vendor/dashboard',[vendorController::class,'dashboard']);
+
+    //------------Start Cruise Items----------------
+    Route::get('vendor/cruise_items',[cruiseitemVController::class,'index']);
+    Route::get('vendor/cruise_items/add-cruise_items',[cruiseitemVController::class,'show']);
+    Route::post('/vendor/cruise_items/insert',[cruiseitemVController::class,'insert']);
+    Route::get('vendor/cruise_items/edit/{id}',[cruiseitemVController::class,'edit']);
+    Route::post('/vendor/cruise_items/update/{id}',[cruiseitemVController::class,'update']);
+    Route::get('vendor/cruise_items/delete/{id}',[cruiseitemVController::class,'delete']);
+    //********** END************
+
+    //------------Start Hotels Items----------------
+    Route::get('vendor/hotels',[hotelVController::class,'index']);
+    Route::get('vendor/hotels/add-hotels',[hotelVController::class,'show']);
+    Route::post('/vendor/hotels/insert',[hotelVController::class,'insert']);
+    Route::get('vendor/hotels/edit/{id}',[hotelVController::class,'edit']);
+    Route::post('/vendor/hotels/update/{id}',[hotelVController::class,'update']);
+    Route::get('vendor/hotels/delete/{id}',[hotelVController::class,'delete']);
+    //********** END************
+
+    //------------Start weddings Items----------------
+    Route::get('vendor/weddings',[weddingVController::class,'index']);
+    Route::get('vendor/weddings/add-weddings',[weddingVController::class,'show']);
+    Route::post('/vendor/weddings/insert',[weddingVController::class,'insert']);
+    Route::get('vendor/weddings/edit/{id}',[weddingVController::class,'edit']);
+    Route::post('/vendor/weddings/update/{id}',[weddingVController::class,'update']);
+    Route::get('vendor/weddings/delete/{id}',[weddingVController::class,'delete']);
+    //********** END************
+
+    //------------Start wine Items----------------
+    Route::get('vendor/wine',[wineVController::class,'index']);
+    Route::get('vendor/wine/add-wine',[wineVController::class,'show']);
+    Route::post('/vendor/wine/insert',[wineVController::class,'insert']);
+    Route::get('vendor/wine/edit/{id}',[wineVController::class,'edit']);
+    Route::post('/vendor/wine/update/{id}',[wineVController::class,'update']);
+    Route::get('vendor/wine/delete/{id}',[wineVController::class,'delete']);
+    //********** END************
+
+    //------------Start caravan Items----------------
+    Route::get('vendor/caravan',[caravanVController::class,'index']);
+    Route::get('vendor/caravan/add-caravan',[caravanVController::class,'show']);
+    Route::post('/vendor/caravan/insert',[caravanVController::class,'insert']);
+    Route::get('vendor/caravan/edit/{id}',[caravanVController::class,'edit']);
+    Route::post('/vendor/caravan/update/{id}',[caravanVController::class,'update']);
+    Route::get('vendor/caravan/delete/{id}',[caravanVController::class,'delete']);
+    //********** END************
+
+    //------------Start honeymoon Items----------------
+    Route::get('vendor/honeymoon',[honeymoonVController::class,'index']);
+    Route::get('vendor/honeymoon/add-honeymoon',[honeymoonVController::class,'show']);
+    Route::post('/vendor/honeymoon/insert',[honeymoonVController::class,'insert']);
+    Route::get('vendor/honeymoon/edit/{id}',[honeymoonVController::class,'edit']);
+    Route::post('/vendor/honeymoon/update/{id}',[honeymoonVController::class,'update']);
+    Route::get('vendor/honeymoon/delete/{id}',[honeymoonVController::class,'delete']);
+    //********** END************
+
+    //------------Start holiday Items----------------
+    Route::get('vendor/holiday',[holidayVController::class,'index']);
+    Route::get('vendor/holiday/add-holiday',[holidayVController::class,'show']);
+    Route::post('/vendor/holiday/insert',[holidayVController::class,'insert']);
+    Route::get('vendor/holiday/edit/{id}',[holidayVController::class,'edit']);
+    Route::post('/vendor/holiday/update/{id}',[holidayVController::class,'update']);
+    Route::get('vendor/holiday/delete/{id}',[holidayVController::class,'delete']);
+    //********** END************
+
+    //------------Start plane Items----------------
+    Route::get('vendor/plane',[planeVController::class,'index']);
+    Route::get('vendor/plane/add-plane',[planeVController::class,'show']);
+    Route::post('/vendor/plane/insert',[planeVController::class,'insert']);
+    Route::get('vendor/plane/edit/{id}',[planeVController::class,'edit']);
+    Route::post('/vendor/plane/update/{id}',[planeVController::class,'update']);
+    Route::get('vendor/plane/delete/{id}',[planeVController::class,'delete']);
+    //********** END************
+
+    //------------Start resort Items----------------
+    Route::get('vendor/resort',[resortVController::class,'index']);
+    Route::get('vendor/resort/add-resort',[resortVController::class,'show']);
+    Route::post('/vendor/resort/insert',[resortVController::class,'insert']);
+    Route::get('vendor/resort/edit/{id}',[resortVController::class,'edit']);
+    Route::post('/vendor/resort/update/{id}',[resortVController::class,'update']);
+    Route::get('vendor/resort/delete/{id}',[resortVController::class,'delete']);
+    //********** END************
+
+    //------------Start golf Items----------------
+    Route::get('vendor/golf',[golfVController::class,'index']);
+    Route::get('vendor/golf/add-golf',[golfVController::class,'show']);
+    Route::post('/vendor/golf/insert',[golfVController::class,'insert']);
+    Route::get('vendor/golf/edit/{id}',[golfVController::class,'edit']);
+    Route::post('/vendor/golf/update/{id}',[golfVController::class,'update']);
+    Route::get('vendor/golf/delete/{id}',[golfVController::class,'delete']);
+    //********** END************
+
+
+
+    Route::get('vendor/logout', function () {
+        if(session()->has('LOGGED_VENDOR')){
+            session()->pull('LOGGED_VENDOR');
+            session()->flash('error','Logout sucessfully');
+            return redirect('vendor/login');
+         }
+
+    });
+
+
+
+
+});
+
+// -----------------------END Vendor Panel ----------------------
+
+
+// -----------------------Start Sales Panel ----------------------
+
+Route::group(['middleware'=>'salescheck'],function(){
+
+    Route::get('sales/dashboard',[salesController::class,'dashboard']);
+
+
+
+    Route::get('sales/logout', function () {
+        if(session()->has('LOGGED_SALES')){
+            session()->pull('LOGGED_SALES');
+            session()->flash('error','Logout sucessfully');
+            return redirect('sales/login');
+         }
+
+    });
+
+
+
+
+});
+
+// -----------------------END sails Panel ----------------------

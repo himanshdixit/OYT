@@ -457,7 +457,7 @@ class frontController extends Controller
 
     public function hotels()
     {
-        $data = DB::table('hotels')->get();
+        $data = DB::table('hotels')->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
     public function hoteldetails($id)
@@ -467,13 +467,13 @@ class frontController extends Controller
     }
     public function hoteldata($id)
     {
-        $data = DB::table('hotels')->where('id','!=',$id)->get();
+        $data = DB::table('hotels')->where('id','!=',$id)->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
 
     public function cruises()
     {
-        $data = DB::table('cruise_items')->get();
+        $data = DB::table('cruise_items')->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
     public function cruisedetails($id)
@@ -483,13 +483,13 @@ class frontController extends Controller
     }
     public function cruisedata($id)
     {
-        $data = DB::table('cruise_items')->where('id','!=',$id)->get();
+        $data = DB::table('cruise_items')->where('id','!=',$id)->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
 
     public function weddings()
     {
-        $data = DB::table('weddings')->get();
+        $data = DB::table('weddings')->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
     public function weddingdetails($id)
@@ -499,13 +499,13 @@ class frontController extends Controller
     }
     public function weddingdata($id)
     {
-        $data = DB::table('weddings')->where('id','!=',$id)->get();
+        $data = DB::table('weddings')->where('id','!=',$id)->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
 
     public function wines()
     {
-        $data = DB::table('wines')->get();
+        $data = DB::table('wines')->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
     public function winedetails($id)
@@ -515,13 +515,13 @@ class frontController extends Controller
     }
     public function winedata($id)
     {
-        $data = DB::table('wines')->where('id','!=',$id)->get();
+        $data = DB::table('wines')->where('id','!=',$id)->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
 
     public function caravans()
     {
-        $data = DB::table('caravans')->get();
+        $data = DB::table('caravans')->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
     public function caravandetails($id)
@@ -531,13 +531,13 @@ class frontController extends Controller
     }
     public function caravandata($id)
     {
-        $data = DB::table('caravans')->where('id','!=',$id)->get();
+        $data = DB::table('caravans')->where('id','!=',$id)->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
 
     public function holidays()
     {
-        $data = DB::table('holidays')->get();
+        $data = DB::table('holidays')->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
     public function holidaydetails($id)
@@ -547,13 +547,13 @@ class frontController extends Controller
     }
     public function holidaydata($id)
     {
-        $data = DB::table('holidays')->where('id','!=',$id)->get();
+        $data = DB::table('holidays')->where('id','!=',$id)->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
 
     public function honeymoons()
     {
-        $data = DB::table('honeymoons')->get();
+        $data = DB::table('honeymoons')->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
     public function honeymoondetails($id)
@@ -563,13 +563,13 @@ class frontController extends Controller
     }
     public function honeymoondata($id)
     {
-        $data = DB::table('honeymoons')->where('id','!=',$id)->get();
+        $data = DB::table('honeymoons')->where('id','!=',$id)->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
 
     public function resorts()
     {
-        $data = DB::table('resorts')->get();
+        $data = DB::table('resorts')->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
     public function resortdetails($id)
@@ -579,13 +579,13 @@ class frontController extends Controller
     }
     public function resortdata($id)
     {
-        $data = DB::table('resorts')->where('id','!=',$id)->get();
+        $data = DB::table('resorts')->where('id','!=',$id)->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
     
     public function planes()
     {
-        $data = DB::table('planes')->get();
+        $data = DB::table('planes')->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
     public function planedetails($id)
@@ -595,13 +595,13 @@ class frontController extends Controller
     }
     public function planedata($id)
     {
-        $data = DB::table('planes')->where('id','!=',$id)->get();
+        $data = DB::table('planes')->where('id','!=',$id)->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
 
     public function golfs()
     {
-        $data = DB::table('golfs')->limit(4)->get();
+        $data = DB::table('golfs')->where('active',1)->limit(4)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
     public function golfs1()
@@ -627,7 +627,7 @@ class frontController extends Controller
     }
     public function golfdata($id)
     {
-        $data = DB::table('golfs')->where('id','!=',$id)->get();
+        $data = DB::table('golfs')->where('id','!=',$id)->where('active',1)->get();
         return response()->json(['status' => 200, 'data' => $data]);
     }
 
