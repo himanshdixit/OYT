@@ -366,6 +366,32 @@
                 </ul>
             </li><!-- End Tables Nav -->
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" data-bs-target="#tables-nav2" data-bs-toggle="collapse" href="#">
+                    <i class="bi bi-layout-text-window-reverse"></i><span>Vendor Panel</span><i
+                        class="bi bi-chevron-down ms-auto"></i>
+                </a>
+                <ul id="tables-nav2" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+                <li>
+                        <a href="{{ url('/admin/vendorpanel') }}">
+                            <i class="bi bi-circle"></i><span>Vendor Panel</span>
+                        </a>
+                    </li>
+                <li>
+                        <a href="{{ url('/admin/vendors') }}">
+                            <i class="bi bi-circle"></i><span>Vendors List</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ url('/admin/vendors/add-vendors/') }}">
+                            <i class="bi bi-circle"></i><span>Add New Vendor</span>
+                        </a>
+                    </li>
+ 
+
+                </ul>
+            </li><!-- End Tables Nav -->
+
             <li class="nav-heading">Pages</li>
 
             <li class="nav-item">

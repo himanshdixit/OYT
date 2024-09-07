@@ -246,4 +246,14 @@ public function deletecaravanbookinglist(Request $request,$id)
 // --------------------------------------------------------
 
 
+
+// -------------------------- Start Vendor Panel ---------------
+
+public function vendorpanel()
+{
+    return view('admin/vendor-panel');
+}
+
+// -------------------------- End Vendor Panel ---------------
+
 }
